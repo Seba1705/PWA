@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                
+                    <div class="form-group">
+                        <label for="texto">Texto:</label>
+                        <input type="text" class="form-control" id="texto">
+                    </div>
+                    <div class="form-group">
+                        <label for="voz">Voz:</label>
+                        <select class="custom-select" id="voz"></select>
+                    </div>
+                    <button class="btn btn-block btn-dark" onclick="leerTexto()">Hablar</button>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var voces;
+
+        if(window.speechSynthesis == undefined){
+            alert("API no disponible");
+        } else {
+            if(speechSynthesis.onvoiceschanged == undefined){
+                setTimeout(leerVoces, 1000);
+            } else {
+                speechSynthesis.addEventListener('voiceschanged', leerVoces);
+            }
+        }
+        
+        // function leerVoces(){
+        //     voces = speechSynthesis.getVoices();
+            
+        //     voces.sort(function(a, b){    
+        //         if(a.lang>b.lang){
+        //             return -1
+        //         } else {
+        //             return 1
+        //         }
+        //     })
+
+        //     if(voces.length===0){
+        //         console.log("No existen voces para cargar");
+        //     } else {
+        //         var select = document.querySelector('select')
+        //         for(var i=0; i<voces.length; i++){
+        //             select.innerHTML += "<option value=" + i + ">" + voces[i].name + " | " + voces[i].lang + "</option>"
+        //             if(voces[i].lang=="es-AR"){
+        //                 defaultVoice = i;
+        //             }
+        //         }
+        //         select.value = defaultVoice;
+        //     }
+        // }
+
+        function leerVoces(){
+            voces = speechSynthesis.getVoices();
+            
+            voces.sort((a, b) => {
+                return a.lang > b.lang ? -1 : 1;
+            });
+
+            if(voces.length === 0)
+                console.log("No existen voces para cargar");
+            else {
+                let select = document.querySelector('select')
+                for(var i=0; i<voces.length; i++){
+                    select.innerHTML += "<option value=" + i + ">" + voces[i].name + " | " + voces[i].lang + "</option>"
+                    // if(voces[i].lang=="es-AR"){
+                    //     defaultVoice = i;
+                    // }
+                }
+           
+                // voces.forEach( element => {
+                //     let item = document.createElement('option');
+                //     item.textContent = `${element.name} | ${element.lang}`;
+                //     select.appendChild(item);
+                // });
+             
+                // select.value = defaultVoice;
+            }
+        }
+           
+        // function leerTexto(){
+        //     var u = new SpeechSynthesisUtterance();
+        //     u.text = document.querySelector("#texto").value;
+        //     var voz = voces[parseInt(document.querySelector("select").value)];
+        //     u.lang = voz.lang;
+        //     u.voice = voz;
+        //     speechSynthesis.speak(u);
+        // }
+
+        const leerTexto = () => {
+            let u = new SpeechSynthesisUtterance();
+            u.text = document.querySelector("#texto").value;
+            let voz = voces[parseInt(document.querySelector("select").value)];
+            u.lang = voz.lang;
+            u.voice = voz;
+            speechSynthesis.speak(u);
+        }
+        
+    </script>
+
+</body>
+</html>

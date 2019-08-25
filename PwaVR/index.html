@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Vitacora de viaje</h1>
+        
+        <a-scene embedded style='width: 100%; height: 300px;' class="mb-5">
+            <a-sky src='./im.jpg' ></a-sky>
+        </a-scene>
+        
+        <h2>Visita Guiada</h2>
+        <p> Qué es un service worker
+            Un service worker es una secuencia de comandos que tu navegador ejecuta en segundo plano, separado de una página web, abriéndoles la puerta a funciones que no necesitan una página web ni interacción de usuario. En la actualidad, ya incorporan funciones como notificaciones push y sincronización en segundo plano. En el futuro, los service workers podrían admitir funciones como sincronización periódica o geovallado. La función principal que analizamos en este instructivo es la capacidad de interceptar y manejar solicitudes de red, incluida la administración programática de una caché de respuestas.
+            
+            El motivo por el que esta es una API tan emocionante es que te permite admitir experiencias sin conexión, brindándoles a los programadores control total sobre la experiencia.</p>
+        <button onclick="hablar()" class="btn btn-primary">Contame ...</button>
+        
+
+        <script>
+            if('serviceWorker' in navigator){
+                console.log('Este Navegador soporta sw');
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registracion){
+                        console.log('SW Registrado');
+                    })
+                    .catch(function(error){
+                        console.error('Error ', error);
+                    })
+
+            }
+            
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.min.js"></script>
+        <script>
+            let hablar = () => {
+                let p = new SpeechSynthesisUtterance();
+                p.text = document.querySelector('p').innerHTML;
+                speechSynthesis.speak(p);
+            }
+        </script>
+    </div>
+</body>
+</html>
