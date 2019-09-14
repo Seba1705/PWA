@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="style.css">
+		<title>Document</title>
+	</head>
+	<body>
+        <header>
+            <h1>Bienvenidos a PwaSocial</h1>
+            
+            <section id="loggedIn">
+                <h2>Bienvenido <span id="nombreUsuario">Usuario</span></h2>
+                <a href="#" id="linkPost">Agregar imagen</a>
+                <a href="#" id="linkLogOut">Salir</a>
+            </section>
+            
+            <section id="loggedOut">
+                <a href="#" id="linkLogIn">Entrar</a>
+                <a href="#" id="linkSignUp">Registrarse</a>
+            </section>
+        </header>
+
+        <main>
+            <section id="signUp">
+                <form onsubmit="return false">
+                    <h2>Registrar cuenta</h2>
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" required>
+                    <label for="email">Correo electronico</label>
+                    <input type="email" id="email">
+                    <label for="pass">Contrasena</label>
+                    <input type="password" id="pass">
+                    <label for="repass">Reingresar Contrasena</label>
+                    <input type="password" id="repass">
+                    <button id="btnRegister">Registrarse</button>
+                </form>
+            </section> 
+
+            <section id="login">
+                <h2>Entrar con tu cuenta</h2>
+                <label for="emailLogin">Correo electronico</label>
+                <input type="email" id="emailLogin"  value='sebaaguirre2012@gmail.com'>
+                <label for="passLogin">Contraseña</label>
+                <input type="password" id="passLogin" value="Seba1705">
+                <button id="btnLogin">Entrar</button>
+            </section>
+
+            <section id="post">
+                <h2>Postear una imagen</h2>
+                <form onsubmit="return false">
+                    <label for="picture">Imagen</label>
+                    <!-- <input type="file" id="picture" accept="image/*"/> -->
+                    <input type="file" id="picture" accept="image/*" capture='user'/>
+                    <section id="secImage">
+                        <img src="" alt="" id="imageSelected" />
+                        <select name="" id="">
+                            <option value="">Sin filtro</option>
+                            <option value="grayscale()">Escala de grises</option>
+                            <option value="saturate(3)">Saturacion</option>      
+                            <option value="invert(1)">Negativo</option>
+                            <option value="sepia()">Sepia</option>
+                            <option value="brightness(1.5)">Brillo</option>
+                            <option value="brightness(0.5)">Oscurecer</option>
+                            <option value="blur(2px)">Blur</option>
+                        </select>
+                        <button id="btnPostImage">Postear imagen</button>
+                    </section>
+                </form>
+            </section>
+            
+            <section id="timeline">
+                <h2>PWA Social</h2>
+                <ul>
+
+                </ul>
+            </section>
+        </main>
+
+        
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+		<script>
+			// Your web app's Firebase configuration
+			var firebaseConfig = {
+				apiKey: 'AIzaSyARUAYNgHkHrfWAPtwcdW5ObLMrgSYe3cE',
+				authDomain: 'pwasocial-a6961.firebaseapp.com',
+				databaseURL: 'https://pwasocial-a6961.firebaseio.com',
+				projectId: 'pwasocial-a6961',
+				storageBucket: 'gs://pwasocial-a6961.appspot.com',
+				messagingSenderId: '23664168545',
+				appId: '1:23664168545:web:c306f0a031e47021b9a420',
+			}
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig)
+        </script>
+         <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script> 
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-storage.js"></script>
+
+        <script src="./app.js"></script>
+	</body>
+</html>

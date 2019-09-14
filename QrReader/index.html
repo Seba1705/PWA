@@ -32,8 +32,8 @@
                 <h2>Leer desde la camara</h2>
 
                 <div>
-                    <input type="button" class="btn btn-success" value="Camara" id="btnCamara">
-                    <input type="button" class="btn btn-danger" value="Capturar" id="btnCapturar">
+                    <input type="button" class="btn btn-danger" value="Camara" id="btnCamara">
+                    <input type="button" class="btn btn-success" value="Capturar" id="btnCapturar">
                 </div>
                 
                 <video width="320" height="320"></video>
@@ -42,6 +42,19 @@
     </div>
 
     <script src="./qrcode-lib.js"></script>
+    <script>
+        if( 'serviceWorker' in navigator ){
+            navigator.serviceWorker.getRegistrations()
+                .then(registraciones => {
+                    for(registracion of registraciones){
+                        console.log(registracion);
+                    }
+                })
+            navigator.serviceWorker.register('sw.js')
+                .then( registracion => console.log('Service worker registrado') )
+                .catch( err => console.error('No se registro SW', err) )
+        }
+    </script>
     <script src="./main.js"></script>
 </body>
 </html>

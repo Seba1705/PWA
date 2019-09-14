@@ -1,0 +1,81 @@
+body { 
+    margin: 0;
+    padding: 0;
+}
+
+h1 { 
+    background: coral;
+    color: white;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+}
+
+header>section {
+    padding: 10px;
+    background: white;
+    color: #333;
+}
+
+header a {
+    display: inline-block;
+    background: white;
+    padding: 10px;
+    text-decoration: none;
+    color: #007;
+    border: 1px solid coral;
+}
+
+main{
+    padding: 15px;
+}
+
+main>section { 
+    display: none;
+}
+
+label{
+    text-align: right;
+    display: inline-block;
+    width: 30%;
+    margin-right: .8em;
+}
+
+input{
+    display: inline-block;
+    width: 50%;
+}
+
+h2{
+    color: coral;
+    padding-bottom: 5px;
+    border-bottom: .8rem;
+}
+
+button{
+    margin-left: 30%;
+    display: block;
+    width: 60%;
+    background: coral;
+    
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+#secImage {
+    margin-left: 20%;
+    margin-top: 20px;
+    display: none;
+}
+
+#imageSelected{
+    display: block;
+}
+
+img{
+    width: 500px;
+    height: auto;
+}
