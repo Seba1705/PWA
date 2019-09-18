@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link rel="stylesheet" href="./style.css" />
+		<title>Pwa Social</title>
+	</head>
+	<body>
+		<nav>
+			<div class="nav-wrapper blue darken-4">
+				<a href="#" class="brand-logo center">Pwa Social</a>
+			</div>
+		</nav>
+
+		<div id="login-page" class="row animated fadeIn"> 
+			<div class="col s12 z-depth-6 card-panel">
+				<form class="login-form" onsubmit="return false">
+					<div class="row"></div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mail_outline</i>
+							<input class="validate" id="email-login" type="email" required/>
+							<label for="email-login" data-error="wrong" data-success="right">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">lock_outline</i>
+							<input id="password-login" type="password" required/>
+							<label for="password-login">Password</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<a href="#" class="btn blue-effect blue darken-4 col s12" id="btn-login">Login</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6 m6 l6">
+							<p class="margin medium-small">
+								<a href="#" id="link-register">Register Now!</a>
+							</p>
+						</div>
+						<div class="input-field col s6 m6 l6">
+							<p class="margin right-align medium-small">
+								<a href="#">Forgot password?</a>
+							</p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div id="register-page" class="row hide"> 
+			<div class="col s12 z-depth-6 card-panel">
+				<form class="login-form">
+					<div class="row"></div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">person_outline</i>
+							<input class="validate" id="name" type="text" />
+							<label for="name" data-error="wrong" data-success="right">Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mail_outline</i>
+							<input class="validate" id="email" type="email" />
+							<label for="email" data-error="wrong" data-success="right">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">lock_outline</i>
+							<input id="password" type="password" />
+							<label for="password">Password</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">lock_outline</i>
+							<input id="repassword" type="password" />
+							<label for="repassword">Re-enter Password</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<a href="#" class="btn blue-effect blue darken-4 col s12" id="btn-register">Register</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+		<script>
+			var firebaseConfig = {
+				apiKey: 'AIzaSyARUAYNgHkHrfWAPtwcdW5ObLMrgSYe3cE',
+				authDomain: 'pwasocial-a6961.firebaseapp.com',
+				databaseURL: 'https://pwasocial-a6961.firebaseio.com',
+				projectId: 'pwasocial-a6961',
+				storageBucket: 'gs://pwasocial-a6961.appspot.com',
+				messagingSenderId: '23664168545',
+				appId: '1:23664168545:web:c306f0a031e47021b9a420',
+			}
+			firebase.initializeApp(firebaseConfig)
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script> 
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-storage.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="./script.js"></script>
+	</body>
+</html>
