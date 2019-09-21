@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <h3><span id="crono">0.0</span>segndos</h3>
+            <button id="btnCambiar">Start</button>
+            <button id="btnReiniciar">Reiniciar</button>
+        </div>
+    </body>
+
+    <script>
+        let t;
+        let crono = document.querySelector('#crono');
+
+        window.onload = () => {
+            localStorage.crono = (localStorage.crono || '0.0');
+            mostrar();
+
+            let btnCambiar = document.querySelector('#btnCambiar'),
+                btbReiniciar = document.querySelector('btnReiniciar');
+
+            btnCambiar.addEventListener('click', cambiar);
+            btnReiniciar.addEventListener('click', inicializar);
+        }
+
+        const cambiar = e => {
+            if(!t){
+                arrancar();
+                btnCambiar.innerText = 'Stop';
+            }else{
+                parar();
+            }
+        }
+
+        const inicializar = e => {
+            localStorage.crono = '0.0';
+            mostrar();
+        }
+
+        const arrancar = () => {
+            t = setInterval(() => {
+                incremento();
+                mostrar();
+            }, 100);
+        }
+
+        const incremento = e => {
+            localStorage.crono = +localStorage.crono + 0.1;
+        }
+        
+        const parar = e => {
+            btnCambiar.innerText = 'Start';
+            clearInterval(t);
+            t = undefined;
+        }
+
+        const mostrar = e => {
+            crono.innerHTML = (+localStorage.crono).toFixed(2);
+        }
+
+
+
+    </script>
+</html>

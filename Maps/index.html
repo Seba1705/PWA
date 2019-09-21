@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <title>Localizar Comercio</title>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="linkAll" >Todos Resto</a></li>
+                <li><a href="#" id="linkNear" >Resto mas cercanos</a></li>
+                <li><a href="#" id="linkMap" >Mostrar Mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Buscador</h1>
+
+        <section id="mapContainer">
+            <h2>Mapa</h2>
+            <div id="map"></div>
+        </section>
+        <section id="list">
+            <h2 id="listTitle">Sin Resultados</h2>
+            <ul>
+
+            </ul>
+        </section>
+
+    </main>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU&q=places&callback=initMap" type="text/javascript"></script>
+    <script src="./geo.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

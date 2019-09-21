@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PouchDB</h1>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.1.1/pouchdb.js"></script>
+    <script>
+        // Crear base de datos
+        let db = new PouchDB('lugares');
+
+        let lugar = {
+            _id: new Date().toISOString(),
+            name: "Sushi Shop", 
+            address: "Via Po 160",
+            lat: 41.9156915, 
+            lon: 12.471871,
+            sincronizado: false
+        }
+        
+        // Insertar en base de datos
+        // db.put(lugar)
+        //     .then(console.log('Registro agregado'))
+
+        // Leer registros
+        // db.allDocs({include_docs: true, descending: false})
+        //     .then(docs => console.log(docs.rows))
+
+        // Cambiar valor sincronizado
+        // db.allDocs({include_docs: true, descending: false})
+        //     .then(docs => {
+        //         docs.rows.forEach(row => {
+        //             let doc = row.doc;
+        //             doc.sincronizado = true;
+        //             db.put(doc);
+        //         });
+        //     })
+
+        // Borrar todos los registros 
+        // db.allDocs({include_docs: true, descending: false})
+        //     .then(docs => {
+        //         docs.rows.forEach(row => {
+        //             let doc = row.doc;
+        //             if(doc.sincronizado)
+        //                 db.remove(doc);
+        //         });
+        //     })
+
+    </script>
+</body>
+</html>
