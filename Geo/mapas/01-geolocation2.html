@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3C Geolocation API</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <style type="text/css">
+        html, body {
+        width: 100%;
+        height: 100%;
+    }
+    #map_canvas {
+        height: 85%;
+        width: 100%;
+    }
+    </style>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+// Determine support for Geolocation
+if (navigator.geolocation) {
+    // Locate position
+    navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+} else {
+    alert('El browser no soporta geolocation');
+}
+
+// Success callback function
+function displayPosition(pos) {
+    var mylat = pos.coords.latitude;
+    var mylong = pos.coords.longitude;
+    var thediv = document.getElementById('locationinfo');
+    thediv.innerHTML = '<p>Tu longitud es :' +
+        mylong + ' y tu latitud es ' + mylat + '</p>';
+
+    //Load Google Map
+    var latlng = new google.maps.LatLng(mylat, mylong);
+        var myOptions = {
+        zoom: 15,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+    
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    //Add marker
+    var marker = new google.maps.Marker({
+            position: latlng, 
+            map: map, 
+            title:"Estas aqui"
+        });
+}
+
+// Error callback function
+function errorFunction(pos) {
+    alert('Error!');
+}
+</script>
+</head>
+
+<body>
+    <div id="map_canvas"></div>
+    <div id="locationinfo"></div>
+</body>
+</html>
